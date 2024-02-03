@@ -1,10 +1,6 @@
 import { useState } from "react";
 import { Board } from "./Board";
-import styled from "styled-components";
-
-const GameInfo = styled.div`
-  margin-left: 20px;
-`;
+import {GameInfo , StyledGameContainer} from "./Game.styled";
 
 export const Game = () => {
   const [history, setHistory] = useState<Array<Array<"X" | "O" | null>>>([
@@ -56,13 +52,13 @@ export const Game = () => {
   }
 
   return (
-    <div>
+    <StyledGameContainer>
       <Board squares={current} onClick={handleClick} />
       <GameInfo>
         <div>{status}</div>
         <ol>{moves}</ol>
       </GameInfo>
-    </div>
+    </StyledGameContainer>
   );
 };
 
